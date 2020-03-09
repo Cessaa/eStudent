@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <br>
+        <b>New Student</b>
+        <a style="margin-left: 48%" href="/" class="btn btn-primary">Back to Student List</a>
+        <hr>
+
+        <form method="POST" class="form-group">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-primary">Create Student</button>
+        </form>
+    </div>
+</div>
+
+{% endblock body %}

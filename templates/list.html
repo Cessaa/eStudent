@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<hr>
+    <nav aria-label="breadcrumb">
+        <a href="/student/create" class="btn btn-primary">Add New Student</a>
+    </nav>
+<hr>
+
+    <table class="table" style="text-align: center;">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Department</th>
+                <th scope="col">Math</th>
+                <th scope="col">Physics</th>
+                <th scope="col">Chemistry</th>
+                <th scope="col">Biology</th>
+                <th scope="col">#</th>
+                <th scope="col">#</th>
+                <th scope="col">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in object_list %}
+            <tr>
+            <td>{{ student.student_id }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.department }}</td>
+            <td>{{ student.mathScore }}</td>
+            <td>{{ student.physicsScore }}</td>
+            <td>{{ student.chemistryScore }}</td>
+            <td>{{ student.biologyScore }}</td>
+            <td><a href="/student/edit/{{student.student_id}}" class="btn btn-primary" />Edit</td>
+            <td><a href="/student/delete/{{student.student_id}}" class="btn btn-danger" />Delete</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock body %}
