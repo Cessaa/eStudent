@@ -1,0 +1,8 @@
+  {% if messages %}
+                    {% for message in messages %}
+                    <div {% if message.tags %} class="messages {{ message.tags }}"{% endif %} >
+                    <span class="closebtn">&times;</span>
+                        <strong>{{ message }}</strong>
+                    {% endfor %}
+                    </div>
+  {% endif %}

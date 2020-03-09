@@ -45,6 +45,8 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+myvenv
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -145,7 +147,7 @@ dmypy.json
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
-
+.idea
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using

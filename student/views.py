@@ -19,6 +19,7 @@ def create(request):
         if form.is_valid():
             student = form.save(commit=False)
             student.save()
+            messages.add_message(request, messages.SUCCESS, "Kayit Basarili.")
             return HttpResponseRedirect('/')
     else:
         form = StudentForm()
@@ -31,6 +32,7 @@ def edit(request,id):
     if form.is_valid():
         student = form.save(commit=False)
         student.save()
+        messages.add_message(request, messages.INFO, 'Güncelleme başarılı.')
         return HttpResponseRedirect('/')
 
     return render(request,"edit.html", {"form":form})
@@ -39,4 +41,5 @@ def edit(request,id):
 def delete(request,id):
     student = get_object_or_404(Student, student_id = id)
     student.delete()
+    messages.add_message(request, messages.WARNING, 'Silme işlemi başarılı.')
     return HttpResponseRedirect('/')

@@ -18,9 +18,6 @@
                 <th scope="col">Physics</th>
                 <th scope="col">Chemistry</th>
                 <th scope="col">Biology</th>
-                <th scope="col">#</th>
-                <th scope="col">#</th>
-                <th scope="col">#</th>
             </tr>
         </thead>
         <tbody>
@@ -34,8 +31,8 @@
             <td>{{ student.physicsScore }}</td>
             <td>{{ student.chemistryScore }}</td>
             <td>{{ student.biologyScore }}</td>
-            <td><a href="/student/edit/{{student.student_id}}" class="btn btn-primary" />Edit</td>
-            <td><a href="/student/delete/{{student.student_id}}" class="btn btn-danger" />Delete</td>
+            <td><a href="{{ student.get_edit_absolute_url }}" class="btn btn-primary" />Edit</td>
+            <td><a href="{{ student.get_delete_absolute_url }}" class="btn btn-danger" />Delete</td>
             </tr>
             {% endfor %}
         </tbody>
