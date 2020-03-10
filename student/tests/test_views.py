@@ -48,12 +48,13 @@ class TestView(TestCase):
             "biologyScore": 29})
 
         self.assertEquals(response.status_code, 302)
+        self.assertEquals(Student.objects.count(), 2)
         self.assertEquals(Student.objects.get(student_id=600).firstName, "Haluk")
 
     def test_project_edit_no_data_CREATE(self):
         response = self.client.post(self.create_url)
 
-        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.status_code, 302)
         self.assertEquals(Student.objects.count(), 1)
 
     def test_project_DELETE(self):

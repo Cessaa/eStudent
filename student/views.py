@@ -1,6 +1,6 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from .forms import StudentForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Student
 from django.contrib import messages
 
@@ -21,6 +21,8 @@ def create(request):
             student.save()
             messages.add_message(request, messages.SUCCESS, "Kayit Basarili.")
             return HttpResponseRedirect('/')
+        else:
+            return HttpResponse(status=302)
     else:
         form = StudentForm()
     return render(request, 'create.html', {'form': form})
@@ -35,11 +37,11 @@ def edit(request,id):
         messages.add_message(request, messages.INFO, 'Güncelleme başarılı.')
         return HttpResponseRedirect('/')
 
-    return render(request,"edit.html", {"form":form})
+    return render(request, "edit.html", {"form": form})
 
 
-def delete(request,id):
-    student = get_object_or_404(Student, student_id = id)
+def delete(request, id):
+    student = get_object_or_404(Student, student_id=id)
     student.delete()
     messages.add_message(request, messages.WARNING, 'Silme işlemi başarılı.')
     return HttpResponseRedirect('/')
