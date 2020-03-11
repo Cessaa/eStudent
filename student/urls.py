@@ -5,7 +5,7 @@ from . import views
 app_name = "student"
 
 urlpatterns = [
-    path('create/', views.CreateView.as_view(), name='create'),
-    path('edit/<int:id>', views.edit, name='edit'),
-    path('delete/<int:id>', views.DeleteView.as_view(), name='delete'),
+    path('create/', views.CreateStudent.as_view(), name='create'),
+    path('edit/<int:id>', views.UpdateStudent.as_view(), name='edit'),
+    path('delete/<int:id>', views.DeleteStudent.as_view(), name='delete'),
 ]
