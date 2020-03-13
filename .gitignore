@@ -216,6 +216,14 @@ fabric.properties
 
 # Distribution / packaging
 
+# Packer
+infrastructure/packer/box/virtualbox/ubuntu1804-0.1.0.box
+infrastructure/packer/packer_cache
+infrastructure/packer/script/custom
+
+# Vagrant
+.vagrant/
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
