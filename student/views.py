@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .forms import StudentForm
 from django.http import HttpResponseRedirect
 from .models import Student
-from django.contrib import messages
-from django.contrib.messages.views import SuccessMessageMixin, InfoMessageMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from .rules import InfoMessageMixin
 from django.contrib import messages
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
