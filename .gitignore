@@ -219,7 +219,6 @@ fabric.properties
 # Packer
 infrastructure/packer/box/virtualbox/ubuntu1804-0.1.0.box
 infrastructure/packer/packer_cache
-infrastructure/packer/script/custom
 
 # Vagrant
 .vagrant/
