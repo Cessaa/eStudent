@@ -185,7 +185,7 @@
         },
         {
             "type": "ansible",
-            "playbook_file": "infrastructure/playbooks/devbox.yml",
+            "playbook_file": "../playbooks/devbox.yml"
         }
     ],
     "variables": {
