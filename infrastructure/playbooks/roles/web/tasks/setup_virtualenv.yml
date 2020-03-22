@@ -1,0 +1,15 @@
+---
+
+- name: Install virtualenv
+  pip:
+    name: virtualenv
+    state: present
+
+- name: Create the virtualenv
+  command: virtualenv -p {{ virtualenv_python_version }} {{ virtualenv_path }}
+           creates={{ virtualenv_path }}/bin/activate
+
+- name: Ensure gunicorn is installed in the virtualenv
+  pip:
+    virtualenv: "{{ virtualenv_path }}"
+    name: gunicorn

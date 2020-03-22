@@ -1,13 +1,23 @@
 ---
-- name: "Provision Image"
-  hosts: default
+
+- name: "Create a virtual machine"
+
+  hosts: all
+
   become: true
 
+  become_user: root
 
-  tasks:
-  - name: Update and upgrade apt packages
-    become: true
-    apt:
-      upgrade: yes
-      update_cache: yes
-      cache_valid_time: 345600 # Four days (seconds)
+  remote_user: vagrant
+
+  vars_files:
+    - env_vars/main.yml
+
+  roles:
+
+    - base
+
+    - web
+
+
+
