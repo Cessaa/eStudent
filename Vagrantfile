@@ -9,6 +9,8 @@ Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
+  config.vm.synced_folder "src/eStudent/" , "/webapps/eStudent/",
+                          owner: "root" , group: "root" , create: true
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.

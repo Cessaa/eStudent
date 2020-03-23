@@ -6,14 +6,14 @@
     state: present
     name: git
 
-- name: Install pip package
-  apt:
-    update_cache: yes
-    state: present
-    name: "{{ base_python_package }}-pip"
+# - name: Install pip package
+#   apt:
+#     update_cache: yes
+#     state: present
+#     name: "{{ base_python_package }}-pip"
 
-- name: Upgrade pip
-  pip:
-    name: pip
-    state: latest
+# - name: Upgrade pip
+#   pip:
+#     name: pip
+#     state: latest
     
