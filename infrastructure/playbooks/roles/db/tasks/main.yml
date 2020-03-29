@@ -1,13 +1,10 @@
 ---
-
-- name: Install PostgreSQL
-  apt:
-    pkg:
-      - postgresql
-      - postgresql-contrib
-      - "{{ base_python_package }}-psycopg2"
-    state: present
-    update_cache: yes
+# - name: Install psycopg2
+#   apt:
+#     update_cache: yes
+#     state: present
+#     name:
+#       - "{{ base_python_package }}-psycopg2"
 
 - name: Ensure the PostgreSQL service is running
   service:
@@ -32,6 +29,6 @@
     priv: ALL
     state: present
     expires: infinity
-    role_attr_flags: CREATEDB,NOSUPERUSER
+    role_attr_flags: NOCREATEDB,NOSUPERUSER
 
 

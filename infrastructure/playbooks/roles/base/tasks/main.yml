@@ -1,19 +1,10 @@
 ---
 
-- name: Install git package
+- name: Install base packages 
   apt:
-    update_cache: yes
-    state: present
-    name: git
-
-# - name: Install pip package
-#   apt:
-#     update_cache: yes
-#     state: present
-#     name: "{{ base_python_package }}-pip"
-
-# - name: Upgrade pip
-#   pip:
-#     name: pip
-#     state: latest
-    
+    pkg:
+      - python3-pip
+      - python3-dev
+      - libpq-dev
+      - postgresql
+      - postgresql-contrib

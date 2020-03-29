@@ -45,7 +45,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-myvenv
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -217,7 +216,7 @@ fabric.properties
 # Distribution / packaging
 
 # Packer
-infrastructure/packer/box/virtualbox/ubuntu1804-0.1.0.box
+infrastructure/packer/box
 infrastructure/packer/packer_cache
 
 # Vagrant

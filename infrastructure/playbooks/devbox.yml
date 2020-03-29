@@ -4,7 +4,7 @@
 
   hosts: all
 
-  become: true
+  become: yes
 
   become_user: root
 
@@ -19,6 +19,8 @@
 
     - web
 
-    - nginx
+    - gunicorn
 
     - db 
+
+    - nginx

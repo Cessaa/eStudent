@@ -2,7 +2,7 @@
 
 virtualenv_python_version: "{{ base_python_package }}"
 
-virtualenv_path: "/webapps/{{ application_name }}"
+virtualenv_path: "/webapps/opt/venv"
 
 project_path: "{{ virtualenv_path }}/{{ project_name }}"
 
@@ -10,7 +10,7 @@ application_log_dir: "{{ virtualenv_path }}/logs"
 
 application_log_file: "{{ application_log_dir }}/gunicorn_supervisor.log"
 
-requirements_file: "{{ project_path }}/requirements.txt"
+requirements_file: "/webapps/{{ application_name }}/requirements.txt"
 
 gunicorn_user: "{{ application_name }}"
 

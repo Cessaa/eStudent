@@ -9,13 +9,25 @@ Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
-  config.vm.synced_folder "src/eStudent/" , "/webapps/eStudent/",
+  config.vm.synced_folder "." , "/webapps/eStudent/",
                           owner: "root" , group: "root" , create: true
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ces"
 
+  config.vm.provision "shell" do |s|
+    s.inline = "systemctl start $1"
+    s.args = "'gunicorn'"
+  end
+     $script = <<-'SCRIPT'
+     echo "<migrate and fixtures"
+     source /webapps/opt/venv/bin/activate
+     python3 /webapps/eStudent/manage.py migrate
+     python3 /webapps/eStudent/manage.py loaddata student.json
+     deactivate
+     SCRIPT
+    config.vm.provision "shell", inline: $script
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -30,11 +42,11 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
-  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  #config.vm.network "forwarded_port", guest: 80, host: 4567 
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "172.18.0.101"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

@@ -1,15 +1,10 @@
 server {
     listen 80;
-    server_name 127.0.0.2;
-    root /webapps/eStudent; # Projenin kök dizini
-
-    location /static/ {
-    }
-
-    location /media/ {
-    }
+    server_name 172.18.0.101;
+    root "/ webapps / eStudent";
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/webapps/eStudent/eStudent.sock;  # Projenin kök dizinindeki 'proje_adı.sock' dosyası
+        proxy_pass http://unix:/run/gunicorn.sock; 
     }
+}

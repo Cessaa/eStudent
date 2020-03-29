@@ -9,7 +9,18 @@
   command: virtualenv -p {{ virtualenv_python_version }} {{ virtualenv_path }}
            creates={{ virtualenv_path }}/bin/activate
 
-- name: Ensure gunicorn is installed in the virtualenv
+- name: Create Folder
+  file:
+    path: /webapps/{{ application_name }}
+    owner: vagrant
+    state: directory
+
+- name: Copy the requiremets.txt
+  copy:
+   dest: "{{ requirements_file }}"
+   src: /home/berkay/src/{{ application_name }}/requirements.txt
+
+- name: In requirements file
   pip:
     virtualenv: "{{ virtualenv_path }}"
-    name: gunicorn
+    requirements: "{{ requirements_file }}"

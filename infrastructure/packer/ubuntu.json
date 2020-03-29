@@ -176,9 +176,7 @@
                 "script/sshd.sh",
                 "script/virtualbox.sh",
                 "script/motd.sh",
-                "{{user `custom_script`}}",
-                "script/minimize.sh",
-                "script/cleanup.sh"
+                "{{user `custom_script`}}"
             ],
             "type": "shell",
             "expect_disconnect": "true"

@@ -15,6 +15,8 @@ fi
 echo "==> Updating list of repositories"
 # apt-get update does not actually perform updates, it just downloads and indexes the list of packages
 apt-get -y update
+apt install -y python3-psycopg2
+apt install -y ifupdown
 
 if [[ $UPDATE  =~ true || $UPDATE =~ 1 || $UPDATE =~ yes ]]; then
     echo "==> Performing dist-upgrade (all packages and kernel)"
