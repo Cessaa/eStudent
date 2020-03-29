@@ -1,11 +1,4 @@
 ---
-# - name: Install psycopg2
-#   apt:
-#     update_cache: yes
-#     state: present
-#     name:
-#       - "{{ base_python_package }}-psycopg2"
-
 - name: Ensure the PostgreSQL service is running
   service:
     name: postgresql

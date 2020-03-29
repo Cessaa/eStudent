@@ -2,8 +2,6 @@
 
 application_name: eStudent
 
-project_name: e-student
-
 git_repo: https://github.com/Cessaa/eStudent.git
 
 virtualenv_python_version: python3.6

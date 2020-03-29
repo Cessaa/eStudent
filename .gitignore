@@ -216,7 +216,6 @@ fabric.properties
 # Distribution / packaging
 
 # Packer
-infrastructure/packer/box
 infrastructure/packer/packer_cache
 
 # Vagrant
