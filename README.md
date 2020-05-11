@@ -34,7 +34,7 @@ bunu da not edip kapattım.
 
 Üçüncü olarak ise electrumx in bizim eski electrum-doge cüzdanı ile zaten çalışmayacağını tespit ettik ama orjinal bitcoin için yapılmış olan electrum wallet ile çalışır mı diye denemeye
 karar verdik. Baya popüler kullanıldıkları için kurulum baya hızlı oldu ve çalıştırdım ikisini de. Electrumx in indexleme
-hızı yüksek olduğu için de bunu denedikten sonra diğerlerine dönmeye karar verdim.       
+hızı yüksek olduğu için de bunu denedikten sonra diğerlerine dönmeye karar verdim. Fakat burada electrumun orjinal wallet ını kullanacağımı ziçin uyumsuzluk olma olasılığı baya yüksek görünüyor.     
 
 
 
