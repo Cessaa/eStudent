@@ -98,9 +98,6 @@ INFO:electrum-doge:catch_up: block 9000 (220.953s 280.448s) 24ee71355f9bcaa2958c
 
 
 ```
-Çalıştırdıktan 280 saniye sonra catch_up: blok sayısı 9000 oldu. Bu baya yavaş gibi geliyor bana nasıl tamamlarız bilemiyorum.
-
-Öte yandan senin verdiğin parametrelerle **electrum-doge**'yi çalıştırdım ama not connect diyor. Heralde catch_up sayısı bitmediği içindir. 
 
 ### Electrum-doge komutu
 
@@ -108,7 +105,6 @@ INFO:electrum-doge:catch_up: block 9000 (220.953s 280.448s) 24ee71355f9bcaa2958c
 electrum-doge --oneserver --server 127.0.0.1:50101:s
 
 ```
-Bu komut da tek server a ve istediğimiz server a bağlanmamızı sağlıyor client içinden de ayarlanıyor ama bizim electrum-doge eski olduğu için garanti olsun.
 
 
 
