@@ -1,15 +1,40 @@
 # Dogecoin
 
-Şimdi 3 task tamamladım. Hepsi programatik olarak çalışıyor.
+Amacımız trezor ile multi signature doge coin cüzdan oluşturmak. Bunun için de bizim electrum denilen cüzdanları
+kullanmamız gerekiyor. Bu cüzdanlar SPV denilen serverlara ihtiyaç duyuyor ve serverlar da tutmak ve indexlemek için 
+serverlara ihtiyaç duyuyor. Biz de tüm coinler için bu süreci başlattık. Ama dogecoin de takıldık çünkü dogecoin nin
+electrum dan fork edildiği proje 6 yıl önce son güncellemesini almış yani terkedilmiş. Projenin çalışmama sebebi olarak 
+online sunuculara sahip olmadığını yazmışlar fakat biz kendimiz de sunucu bulacağımız için bunu dert etmedik. 
 
-1 - Sanal makine kullandığım ve txindex=0 olan tek task buydu. **Electrum-personel-server** ile **dogecoin core** sanal makinemde, **electrum-doge** ise host makinede çalıştı. Wallet private key ini config dosyasında tanımladım. Aşağıdaki kodda var zaten. Ama sonuç alamadığım tek task bu belki biraz daha araştımam gerekiyor böyle kaldı çünkü. ip adresi sorunu olabilir. Dediğim gibi ayrıntılı bakılabilir.
+İlk önce electrum-dogeyi host makineme kurdum ve çalıştırdım. Program çalıştıktan sonra aktif sunucu var mı diye baktım
+fakat yoktu. Programın sadece sunucuya ihtiyaç duyduğunu varsayıyorum. Şimdilik bundan emin değilim. Programı çalıştırdıktan sonra bir SPV sunucusu ihtiyacımız kaldı. Onun için bir 
+kaç seçenek vardı o andan itibaren asıl görev başladı. Bununla birlikte sanal makineye 6 yıl önce aynı kişiler
+tarafından yapılmış electrum-server i indirdim. Tabiki de electrum-server aynı zamanda bir daemon a ihtiyaç duyuyor
+bu ihtiyacı da Dogecoin core sayesinde sağlıyoruz.
 
-2- Bu ve 3. taskı kendi host makinemde çalıştırdım. Dogecoin core un config dosyası ve blok ağı genel bilgilerini aşağıda verdim. Blok sayısı genel blockhain uzunluğuna yaklaşık 1-2 gün içinde geldi. Şuan çalıştığında da blok eklenmişse onu ekliyor ve tam blok sayısına hakimiz. Bu taskta **electrum-doge-server** ile **electrum-doge** yi denedim. Çalışırken blok sayısına ulaşması gerekiyor galiba ama bu çok yavaş. Çalıştırdıktan 280 saniye sonra catch_up: blok sayısı 9000 oldu. Bu baya yavaş gibi geliyor bana nasıl tamamlarız bilemiyorum. Öte yandan senin verdiğin parametrelerle electrum-doge'yi çalıştırdım ama not connect diyor. Heralde catch_up sayısı bitmediği içindir. Bir de ona tamamlandıktan sonra bakmamız gerekebilir.
+Proje çok eski olduğu için bir yerde hata verdi ve ben çok uğraşmadan bıraktık. Sonra electrumx e baktık ve bunda deneyeceğimizi
+düşündük. Biraz uğraştıktan sonra core ile sağlıklı bir şekilde çalışan bir server elde ettik(Electrumx). Fakat cüzdan ile
+etkileşime girmesini sağlayamadık. Acaba electrumx ile ilgili bir problem mi var diye düşünüp Litecoin ile denemeye karar verdik.
+Ama onun kurulum aşamasında ssl serfikaları isteyince vazgeçip bıraktık. Biraz da düşündükten sonra electrumx ile 
+electrum-dogenin uyumsuz olabileceğine karar verdik ve en başta kolay vazgeçtiğimiz electrum-dogeye geri döndük. Buradaki
+hata gerçekten de basitmiş. Eksikleri kendi github ıma forkladığım kodlarla tamamladım. Bir hata aldık ve bu hata txindex=1
+olmalı hatasıydı yani bütün blockhanin blok zincirine ihtiyaç duyuyordu. Sonra geriye baktığımızda galiba electrumx de de 
+txindex=1 olmalıydı diye düşündük. Host makinede bir dogecoind oluşturup txindex=1 yapıp beklemeye başladım yaklaşık 1 gün sürdü
+Txindex olurken bir tane daha server keşfettik electrum-person-server. Bu daha cüzdan private key 
+isteyip çalışma mantığı biraz daha farklı. Electrumun serverina bağlanma parametrelerini console ile vermemiz gerektiğini
+söylüyordu özellikle eski tip cüzdanlarda. Biz de ona göre hareket ettik.
 
-3- Bu ise bence en etkili şkilde çalışan task. **Electrum** , **electrumx-server** ve   **dogecoind** ile çalışma aşağıda mevcut.
-Yine not connect diyor ama **BlockProcessor'un** bitmesini beklemedim. En sonunda istediğinden başlarız diye sona saklıyorum onu. Sanki bu ikinci taska göre çok daha hızlı biter.
+Sonuç olarak 3 farklı yola girdik. Birincisi electrum-personal-doge ile electrum cüzdan oluşturmaktı. Bu txindex istemediği için
+ilk önce bunu yapmaya kara verdim. Programı çalıştırdım fakat cüzdanla bir etkileşime girmesini sağlayamadım. Console da çalışıyor
+görünüyordu ama bir cevap yoktu. Diğer yollara baktıktan sonra dönmek üzere not alıp kapattım. 
 
-Sonuç olarak abi hiçbiri ile cüzdan conneti sağlayamadım.    
+İkinci olarak txindex bittikten sonra tekrar electrum-doge-server ile electrum-doge ye döndük .İkiside aynı proje içerisinde
+yer alıyor. Bence en rahat bunların çalışması gerekiyor. Txindex ile çalışmaya başladı fakat indexleme hızı çok yavaş olduğu için
+bunu da not edip kapattım.
+
+Üçüncü olarak ise electrumx in bizim eski electrum-doge cüzdanı ile zaten çalışmayacağını tespit ettik ama orjinal bitcoin için yapılmış olan electrum wallet ile çalışır mı diye denemeye
+karar verdik. Baya popüler kullanıldıkları için kurulum baya hızlı oldu ve çalıştırdım ikisini de. Electrumx in indexleme
+hızı yüksek olduğu için de bunu denedikten sonra diğerlerine dönmeye karar verdim.       
 
 
 
