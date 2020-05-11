@@ -25,7 +25,7 @@ isteyip çalışma mantığı biraz daha farklı. Electrumun serverina bağlanma
 söylüyordu özellikle eski tip cüzdanlarda. Biz de ona göre hareket ettik.
 
 Sonuç olarak 3 farklı yola girdik. Birincisi electrum-personal-doge ile electrum cüzdan oluşturmaktı. Bu txindex istemediği için
-ilk önce bunu yapmaya kara verdim. Programı çalıştırdım fakat cüzdanla bir etkileşime girmesini sağlayamadım. Console da çalışıyor
+ilk önce bunu yapmaya kara verdim. İlk önce indirdiğimde proje Bitcoin Core 1.20 zorunlu olarak istiyordu. Projeyi yapana bir issue oluşturdum. Eski sürümlerini kullanmayı önerdi. Ben de bir önceki sürümü indirmeye karar verdim. Programı çalıştırdım fakat cüzdanla bir etkileşime girmesini sağlayamadım. Console da çalışıyor
 görünüyordu ama bir cevap yoktu. Diğer yollara baktıktan sonra dönmek üzere not alıp kapattım. 
 
 İkinci olarak txindex bittikten sonra tekrar electrum-doge-server ile electrum-doge ye döndük .İkiside aynı proje içerisinde
