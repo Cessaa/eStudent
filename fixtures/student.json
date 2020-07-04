@@ -1,0 +1,15 @@
+[
+  {
+    "model": "student.Student",
+    "pk": 1,
+    "fields": {
+      "firstName": "John",
+      "lastName": "Lennon",
+	"department": "bilisim",
+	"mathScore": 100,
+	"physicsScore": 100,
+	"chemistryScore": 100,
+	"biologyScore": 100
+    }
+  }
+]

@@ -1,0 +1,26 @@
+---
+
+- name: "Create a virtual machine"
+
+  hosts: all
+
+  become: yes
+
+  become_user: root
+
+  remote_user: vagrant
+
+  vars_files:
+    - env_vars/main.yml
+
+  roles:
+
+    - base
+
+    - web
+
+    - gunicorn
+
+    - db 
+
+    - nginx

@@ -1,0 +1,7 @@
+---
+
+- include_tasks: setup_virtualenv.yml
+
+# - include_tasks: setup_git_repo.yml
+
+  

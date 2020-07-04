@@ -1,0 +1,14 @@
+---
+
+application_name: eStudent
+
+git_repo: https://github.com/Cessaa/eStudent.git
+
+virtualenv_python_version: python3.6
+
+db_user: "{{ application_name }}"
+
+db_name: "{{ application_name }}"
+
+db_password: parola123
+

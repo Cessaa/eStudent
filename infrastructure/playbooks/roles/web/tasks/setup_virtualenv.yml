@@ -1,0 +1,26 @@
+---
+
+- name: Install virtualenv
+  pip:
+    name: virtualenv
+    state: present
+
+- name: Create the virtualenv
+  command: virtualenv -p {{ virtualenv_python_version }} {{ virtualenv_path }}
+           creates={{ virtualenv_path }}/bin/activate
+
+- name: Create Folder
+  file:
+    path: /webapps/{{ application_name }}
+    owner: vagrant
+    state: directory
+
+- name: Copy the requiremets.txt
+  copy:
+   dest: "{{ requirements_file }}"
+   src: /home/berkay/src/{{ application_name }}/requirements.txt
+
+- name: In requirements file
+  pip:
+    virtualenv: "{{ virtualenv_path }}"
+    requirements: "{{ requirements_file }}"
